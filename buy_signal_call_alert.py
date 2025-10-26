@@ -12,7 +12,7 @@ warnings.filterwarnings('ignore')
 
 
 # Parameters
-symbol = 'BTC/USDT'
+symbol = 'BNB/USDT'
 timeframe = '3m'  # Options: '15m', '1h', '4h', etc.
 limit = 100  # Number of candles to fetch
 zero_threshold = 0.002  # defines "near zero" region
@@ -24,10 +24,12 @@ TWILIO_FROM = os.getenv("TWILIO_FROM")   # your Twilio phone number, e.g. "+1234
 TWILIO_TO = os.getenv("TWILIO_TO")       # your verified personal number, e.g. "+1987654321"
 
 # exchange = ccxt.bybit({'enableRateLimit': True}) - working for Global regions (binance is blocked for US regions)
-# Initialize Binance
+
 # exchange = ccxt.binance({
 #     'enableRateLimit': True,
 # })
+
+# Initialize Binance
 exchange = ccxt.binanceus({'enableRateLimit': True})
 
 # Function to fetch historical data
@@ -104,5 +106,3 @@ if check_buy_alert(df):
     make_call_alert(f"Buy alert triggered for {symbol} at {df['timestamp'].iloc[-1]}")
 else:
     print("No Buy Signal.")
-    make_call_alert(f"No Buy alert triggered at {df['timestamp'].iloc[-1]}")
-    # uncomment the above line to test the alert trigger 
