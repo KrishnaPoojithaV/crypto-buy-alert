@@ -25,9 +25,10 @@ TWILIO_TO = os.getenv("TWILIO_TO")       # your verified personal number, e.g. "
 
 # exchange = ccxt.bybit({'enableRateLimit': True}) - working for Global regions (binance is blocked for US regions)
 # Initialize Binance
-exchange = ccxt.binance({
-    'enableRateLimit': True,
-})
+# exchange = ccxt.binance({
+#     'enableRateLimit': True,
+# })
+exchange = ccxt.binanceus({'enableRateLimit': True})
 
 # Function to fetch historical data
 def fetch_data():
@@ -103,5 +104,5 @@ if check_buy_alert(df):
     make_call_alert(f"Buy alert triggered for {symbol} at {df['timestamp'].iloc[-1]}")
 else:
     print("No Buy Signal.")
-    # make_call_alert(f"No Buy alert triggered at {df['timestamp'].iloc[-1]}")
+    make_call_alert(f"No Buy alert triggered at {df['timestamp'].iloc[-1]}")
     # uncomment the above line to test the alert trigger 
