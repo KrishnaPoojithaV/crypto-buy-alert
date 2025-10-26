@@ -23,10 +23,7 @@ TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
 TWILIO_FROM = os.getenv("TWILIO_FROM")   # your Twilio phone number, e.g. "+1234567890"
 TWILIO_TO = os.getenv("TWILIO_TO")       # your verified personal number, e.g. "+1987654321"
 
-# Initialize Binance
-exchange = ccxt.binance({
-    'enableRateLimit': True,
-})
+exchange = ccxt.bybit({'enableRateLimit': True})
 
 # Function to fetch historical data
 def fetch_data():
