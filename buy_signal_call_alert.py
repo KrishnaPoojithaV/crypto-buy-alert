@@ -103,4 +103,5 @@ if check_buy_alert(df):
     make_call_alert(f"Buy alert triggered for {symbol} at {df['timestamp'].iloc[-1]}")
 else:
     print("No Buy Signal.")
-    make_call_alert(f"No Buy alert triggered at {df['timestamp'].iloc[-1]}")
+    # make_call_alert(f"No Buy alert triggered at {df['timestamp'].iloc[-1]}")
+    # uncomment the above line to test the alert trigger 
